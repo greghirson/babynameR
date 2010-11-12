@@ -1,0 +1,10 @@
+Package: babynameR
+Version: 1.0
+Date: 2010-11-10
+Title: Get baby name data from SSA
+Author: Greg Hirson <ghirson@ucdavis.edu>
+Maintainer: Greg Hirson <ghirson@ucdavis.edu>
+Depends: XML, RCurl
+Description: An interface to the baby name data stored by the
+  Social Security Administration.
+License: BSD
