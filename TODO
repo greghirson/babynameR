@@ -1,0 +1,12 @@
+#state and year, top 100
+htmlParse(postForm("http://www.socialsecurity.gov/cgi-bin/namesbystate.cgi", year = 2008, state = "CA", style = "POST"))
+
+
+#all stats, given year
+
+http://www.socialsecurity.gov/OACT/babynames/state/top5_2009.html
+
+#decades
+
+http://www.socialsecurity.gov/OACT/babynames/decades/names1980s.html
+
