@@ -41,7 +41,11 @@ popularname <- function(year, top=20, number="n")
                    sex = rep(c("male", "female"), each = nrow(m)),
                    name = unlist(m[ ,c(2, 4)]),
                    value = unlist(m[ ,c(3, 5)]))
-  m2$value <- gsub(",", "", m2$value)
+  if(number == "n"){
+    m2$value <- gsub(",", "", m2$value)
+  } else {
+    m2$value <- gsub("%", "", m2$value)
+  }
   m2$rank <- as.numeric(as.character(m2$rank))
   m2$value <- as.numeric(as.character(m2$value))
                         
@@ -54,7 +58,7 @@ statename <- function(year, state)
 #state names by year
 {
   base <- "http://www.socialsecurity.gov/cgi-bin/namesbystate.cgi"
-  ret <- postForm(base, year = 2008, state = "CA", style = "POST")
+  ret <- postForm(base, year = year, state = state, style = "POST")
   retp <- htmlParse(ret)
   raw <- sapply(getNodeSet(retp, "//td//td"), xmlValue)
   raw <- raw[-c(1:2)]
@@ -70,3 +74,4 @@ statename <- function(year, state)
   rownames(m2) <- seq(nrow(m2))
   m2
 }
+
